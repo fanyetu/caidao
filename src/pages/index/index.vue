@@ -5,7 +5,9 @@
       <div class="expend"></div>
       <div class="income-wrapper"></div>
     </div>
-    <div class="middle"></div>
+    <div class="middle">
+      <button type="primary">记一笔</button>
+    </div>
     <div class="bottom"></div>
   </div>
 </template>
@@ -39,6 +41,12 @@ export default {
       width: 100%;
       height:400rpx;
       background-color: @theme-color;
+      box-sizing: border-box;
+      padding: @padding-normal;
+    }
+    .middle{
+      width: 100%;
+      box-sizing: border-box;
       padding: @padding-normal;
     }
   }
