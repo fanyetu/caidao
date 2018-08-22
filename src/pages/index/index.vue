@@ -83,7 +83,7 @@
       flex-direction: column;
       color: @front-color;
       .title {
-        flex: 0 0 150 rpx;
+        flex: ~"0 0 150rpx";
       }
       .expend {
         margin-bottom: @padding-normal;
