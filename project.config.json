@@ -8,8 +8,9 @@
 		"newFeature": true
 	},
 	"miniprogramRoot": "./dist/",
+	"qcloudRoot": "./server/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
+	"appid": "wxb0ddfc81aa8ef991",
 	"projectname": "caidao",
 	"condition": {
 		"search": {
