@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/index/main",
+    "pages/me/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarTitleText": "财道",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+    "list": [
+      {
+        "pagePath":"pages/index/main",
+        "text":"流水",
+        "iconPath":"static/imgs/turnover.png",
+        "selectedIconPath":"static/imgs/turnover-active.png"
+      },
+      {
+        "pagePath":"pages/me/main",
+        "text":"我的",
+        "iconPath":"static/imgs/me.png",
+        "selectedIconPath":"static/imgs/me-active.png"
+      }
+    ]
+  }
+}
