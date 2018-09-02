@@ -39,19 +39,7 @@
       };
     },
     created() {
-      let _this = this
-      wx.showLoading({
-        title: "加载中"
-      });
-      wx.getUserInfo({
-        success: function(res) {
-          console.log(res.userInfo);
-          _this.avatarUrl = res.userInfo.avatarUrl;
-        },
-        complete: function() {
-          wx.hideLoading();
-        }
-      });
+
     },
     methods: {
       addNote() {

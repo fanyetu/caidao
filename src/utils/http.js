@@ -17,7 +17,7 @@ export function post(url, data) {
 export function request(url, method, data) {
   return new Promise((resolve, reject) => {
     wx.request({
-      url: CONFIG.basePath + url,
+      url: CONFIG.baseUrl + url,
       data,
       method,
       success(resp) {

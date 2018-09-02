@@ -1,6 +1,11 @@
 /**
  * create by zhanghaonan 2018/8/30
  */
+const BASE_URL = 'http://localhost:5757/weapp'
+
 export default {
-  basePath: 'http://localhost:5757/weapp'
+  baseUrl: BASE_URL,
+  urls: {
+    loginUrl: `${BASE_URL}/login`
+  }
 }
