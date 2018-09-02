@@ -27,6 +27,7 @@
   </div>
 </template>
 <script>
+  import { mapGetters } from "vuex";
 
   export default {
     data() {
@@ -38,8 +39,13 @@
         monthAvailable: "10000.00"
       };
     },
-    created() {
-
+    computed: {
+      ...mapGetters([
+        "logined"
+      ])
+    },
+    onShow() {
+      console.log(this.logined);
     },
     methods: {
       addNote() {

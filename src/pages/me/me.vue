@@ -12,25 +12,43 @@
 <script>
   import { request } from "@/utils/http";
   import qcloud from "wafer2-client-sdk";
-  import {showLoading,hideLoading, toast} from "../../utils/utils";
+  import { showLoading, hideLoading, toast } from "@/utils/utils";
+  import { mapMutations, mapGetters } from "vuex";
 
   // 登陆
   export default {
     data() {
       return {
-        avatarUrl: "/static/imgs/default-avatar.png",
-        nickname: "登录"
+        avatarUrl: "",
+        nickname: ""
       };
     },
     created() {
-
+      if (this.logined) {
+        this.avatarUrl = this.userInfo.avatarUrl
+        this.nickname = this.userInfo.nickName
+      }else{
+        this.avatarUrl = "/static/imgs/default-avatar.png"
+        this.nickname = '登录'
+      }
+    },
+    computed: {
+      ...mapGetters([
+        "logined",
+        "userInfo"
+      ])
     },
     methods: {
+      ...mapMutations({
+        setLogined: "setLogined",
+        setUserInfo: "setUserInfo"
+      }),
       doLogin() {
-        showLoading()
-        console.log("do login");
+        if (this.logined) {
+          return
+        }
+        showLoading();
         const session = qcloud.Session.get();
-        console.log(session);
         if (session) {
           qcloud.loginWithCode(this.loginHandler());
         } else {
@@ -38,15 +56,20 @@
         }
       },
       loginHandler() {
+        let _this = this;
         return {
           success(res) {
-            console.log(res);
-            hideLoading()
-            toast('登录成功', 'success')
+            _this.setLogined(true);
+            _this.setUserInfo(res);
+
+            _this.avatarUrl = res.avatarUrl
+            _this.nickname = res.nickName
+            hideLoading();
+            toast("登录成功", "success");
           },
           fail(err) {
-            console.log(err);
-            hideLoading()
+            hideLoading();
+            toast("登录失败，请稍后重试", "");
           }
         };
       }
